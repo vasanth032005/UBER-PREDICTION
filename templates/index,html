@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Uber Rides Predictor</title>
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- LEFT SIDE (FORM) -->
+    <div class="form-section">
+        <h2>🚖 Uber Rides Predictor</h2>
+        <p>Enter details to predict weekly riders</p>
+
+        <form action="{{ url_for('predict') }}" method="POST">
+
+            <input class="form-input" type="text" name="Priceperweek" placeholder="Price per week" required>
+
+            <input class="form-input" type="text" name="Population" placeholder="Population" required>
+
+            <input class="form-input" type="text" name="Monthlyincome" placeholder="Monthly income" required>
+
+            <input class="form-input" type="text" name="Averageparkingpermonth" placeholder="Parking per month" required>
+
+            <input class="form-input" type="text" name="Numberofcars" placeholder="Number of cars" required>
+
+            <button type="submit" class="btn">Predict</button>
+
+        </form>
+    </div>
+
+    <!-- RIGHT SIDE (OUTPUT) -->
+    <div class="output-section">
+        <h1>Prediction Result</h1>
+
+        <div class="result-box">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
